@@ -10,12 +10,34 @@
     <Authors>Croket</Authors>
     <Company>CroketWorld</Company>
     <Copyright>MIT</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/croketworld/CrearIcono</RepositoryUrl>
+    <PackageTags>icon, stable diffusion, AI, generative AI, winforms, windows, python</PackageTags>
+    <NeutralLanguage>es-ES</NeutralLanguage>
+    <AnalysisLevel>latest-all</AnalysisLevel>
+    <PackageId>CroketWorld.$(AssemblyName)</PackageId>
+    <Title>Crear Icono - Croketworld</Title>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <RegisterForComInterop>True</RegisterForComInterop>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <RegisterForComInterop>True</RegisterForComInterop>
   </PropertyGroup>
 
   <ItemGroup>
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
