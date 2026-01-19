@@ -1,9 +1,9 @@
 <Solution>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
-    <File Path="convert_original_stable_diffusion_to_diffusers.py" />
+    <File Path="test.txt" />
   </Folder>
-  <Project Path="CrearIcono/CrearIcono.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52">
+  <Project Path="CrearIcono/CrearIcono.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52" Id="fbafad7a-cef3-4461-8142-a695cf0ad369">
     <Build Project="false" />
   </Project>
   <Project Path="CrearIconoUI/CrearIconoUI.vbproj" />

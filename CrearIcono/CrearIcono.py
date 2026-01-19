@@ -1,3 +1,7 @@
+from diffusers import DiffusionPipeline
+import torch
+from PIL import Image
+prompt = "{0}"
 #de momento uso dos vriables: el tetxo de prompt y la ruta del archivo de salida
 # Importar librerías necesarias
 
@@ -16,10 +20,7 @@
 # Inicializar la tubería con el modelo convertido
 
 
-From diffusers import DiffusionPipeline
-import torch
-From PIL import Image
-prompt = "{0}"
+
 pipe = DiffusionPipeline.from_pretrained(
     "C:\Users\Croket\Documents\AI\Models\fantassifiedIcons_fantassifiedIconsV20.safetensors",
 # Ruta donde guardaste el modelo convertido
@@ -33,4 +34,4 @@ pipe.enable_xformers_memory_efficient_attention()
 # Generar la imagen
 image = pipe(prompt).images
 image.save("{1}")
-Print("¡Icono generado y guardado como {1}!")
+print("¡Icono generado y guardado como {1}!")

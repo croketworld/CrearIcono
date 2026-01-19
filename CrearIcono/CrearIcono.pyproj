@@ -22,6 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CheckPyDependencias.py" />
+    <Compile Include="convert_original_stable_diffusion_to_diffusers.py" />
     <Compile Include="CrearIcono.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

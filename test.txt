@@ -1,0 +1,5 @@
+cd C:\Users\Croket\source\repos\CrearIcono\CrearIcono
+python convert_original_stable_diffusion_to_diffusers.py ^
+--from_safetensors --image_size 512 ^
+--checkpoint_path="C:/Users/Croket/Documents/AI/Models/fantassifiedIcons_fantassifiedIconsV20.safetensors" ^
+--dump_path="C:/Users/Croket/Documents/AI/Models/diffusers/fantassifiedIcons_fantassifiedIconsV20"
