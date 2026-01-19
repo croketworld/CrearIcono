@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net10.0-windows10.0.26100.1</TargetFramework>
+    <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
     <StartupObject>Sub Main</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
@@ -17,14 +17,15 @@
     <AnalysisLevel>latest-all</AnalysisLevel>
     <PackageId>CroketWorld.$(AssemblyName)</PackageId>
     <Title>Crear Icono - Croketworld</Title>
+    <PackAsTool>False</PackAsTool>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <RegisterForComInterop>True</RegisterForComInterop>
+    <RegisterForComInterop>False</RegisterForComInterop>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <RegisterForComInterop>True</RegisterForComInterop>
+    <RegisterForComInterop>False</RegisterForComInterop>
   </PropertyGroup>
 
   <ItemGroup>

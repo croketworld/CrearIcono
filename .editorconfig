@@ -1,0 +1,7 @@
+﻿[*.vb]
+
+# CA1707: Los identificadores no deben contener caracteres de subrayado
+dotnet_diagnostic.CA1707.severity = none
+
+# CA2227: Las propiedades de colección deben ser de solo lectura
+dotnet_diagnostic.CA2227.severity = none
