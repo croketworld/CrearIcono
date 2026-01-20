@@ -1,4 +1,5 @@
-﻿Imports System.Collections.ObjectModel
+﻿Imports System.CodeDom
+Imports System.Collections.ObjectModel
 Imports System.Runtime.Serialization
 Imports System.Security.Cryptography
 Imports System.Windows.Markup
@@ -27,6 +28,7 @@ Friend Class CrearIconoConfig
     End Property
     Private Sub _Set_Imagen_Tamaño(value? As Size)
         If value IsNot Nothing And Imagen_Tamaños.Contains(value) = False Then value = Nothing
+        If value Is Nothing Then value = GetDefault_Imagen_Tamaño()
         _selected_Imagen_Tamaño = value
     End Sub
 
@@ -170,6 +172,10 @@ Friend Class CrearIconoConfig
     End Sub
 
     Public Sub Iniciar()
+        Imagen_Tamaños = New Collection(Of Size)
+        Imagen_Tamaño = New Size
+        _selected_Imagen_Tamaño = GetDefault_Imagen_Tamaño()
+        _selected_Imagen_Tamaños = GetDefault_Imagen_Tamaños()
         Path_WorkingDir = My.Application.Info.DirectoryPath
         Path_ModelsDir = IO.Path.Join(Path_WorkingDir, "Models")
         Modelo_Name = "fantassifiedIcons_fantassifiedIconsV20.safetensors"

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CrearIconoUI": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\Croket\\Desktop\\Descargar de youtube.lnk\""
+    }
+  }
+}

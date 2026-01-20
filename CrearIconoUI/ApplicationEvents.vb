@@ -28,7 +28,8 @@ Namespace My
     Partial Friend Class MyApplication
         Public Shared LogExceptionsContent As String
         Public Shared Config As CrearIconoConfig
-
+        Friend preprompt As String = "Crea un icono de "
+        Friend prompt As String = ""
         Public Function GetConfig() As CrearIconoConfig
             Return Config
         End Function
@@ -36,6 +37,7 @@ Namespace My
         Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
             Config = New CrearIconoConfig
             Config.Cargar()
+            IniciarApp()
         End Sub
         ''' <summary>
         ''' Excepciones no controladas
@@ -66,8 +68,43 @@ Namespace My
         Public Shared Sub Write_Exception(exe As Exception)
             LogExceptionsContent += exe.Message
             LogExceptionsContent += Environment.NewLine
+            If My.Application.MainForm IsNot Nothing Then
+                If My.Application.MainForm Is Form1 Then
+                    Dim frm As Form1 = My.Application.MainForm
+                    frm.tx_log.Text = LogExceptionsContent
+                End If
+            End If
         End Sub
 
+        Public Shared Sub IniciarApp()
+            Dim args As String() = Environment.GetCommandLineArgs
+            If args.Length > 1 Then
+                Dim prompt As String = ""
+                If IO.File.Exists(args(1)) Then 'si el archivo existe
+                    Dim filename As String = New IO.FileInfo(args(1)).Name
+                    Dim extension As String = ""
+                    If args(1).Contains("."c, StringComparison.InvariantCultureIgnoreCase) Then
+                        extension = args(1)?.Split(".")?.Last()?.ToLowerInvariant()?.Trim()
+
+                    End If
+                    My.Application.preprompt = "Crea un icono para "
+                    'comprobar si es un acceso directo
+                    Dim esAccesoDirecto As Boolean = False
+                    esAccesoDirecto = (extension = "lnk")
+
+
+                    'si es acceso directo, obtener el archivo destino
+                    If esAccesoDirecto Then
+                        My.Application.preprompt += "un acceso directo llamado "
+                        prompt = filename.Replace("." + extension, "", StringComparison.InvariantCultureIgnoreCase)
+                    End If
+                Else
+                    'pasar argumentos como prompt
+                    prompt = String.Join(" ", args)
+                End If
+                My.Application.prompt = prompt
+            End If
+        End Sub
         Private Sub MyApplication_Shutdown(sender As Object, e As EventArgs) Handles Me.Shutdown
             If (Config IsNot Nothing) = False Then
                 Config = New CrearIconoConfig

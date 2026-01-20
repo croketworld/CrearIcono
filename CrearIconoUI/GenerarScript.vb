@@ -3,11 +3,22 @@ Imports System.IO
 Imports System.Numerics
 Imports System.Reflection.Metadata
 Imports System.Text
+Imports Windows.Storage.Streams
 
 Friend Class GenerarScript
 
     Public Linea_Prompts As String = "PROMPTS = "
+    Private ReadOnly _scriptpath As String
+    Public ReadOnly Property ScriptPath As String
+        Get
+            Return _scriptpath
+        End Get
+    End Property
 
+    Public Sub New(prompt As String, outputdirectory As String,
+                                         outputfilename As String)
+        _scriptpath = GetScriptFilePath("", prompt.Split(" "), outputdirectory, outputfilename)
+    End Sub
 
     Public Function GetScriptFilePath(modelpath As String, prompts() As String,
                                          outputdirectory As String,
@@ -16,9 +27,16 @@ Friend Class GenerarScript
         Dim sw As IO.StreamWriter = Nothing
         Dim pathscript As String = Path.Combine(My.Application.Info.DirectoryPath, "CrearIcono.py")
         If IO.File.Exists(pathscript) Then IO.File.Move(pathscript, pathscript + ".last", True)
+        Dim contenido As String = ""
+        Dim prompt As String = String.Join(" ", prompts).Trim()
+        Dim outputfullpath As String = IO.Path.Combine(outputdirectory, outputfilename, ".png")
         Try
+            contenido = SimpleInitialScriptContent()
+            contenido = contenido _
+            .Replace("{0}", prompt, StringComparison.InvariantCultureIgnoreCase) _
+            .Replace("{1}", outputfullpath, StringComparison.InvariantCultureIgnoreCase)
             sw = New StreamWriter(pathscript, False)
-
+            sw.Write(contenido)
         Catch ex As Exception
             My.Application.WriteException(ex, False, EExceptionCodes.Script_WriteFile)
         End Try
@@ -30,7 +48,17 @@ Friend Class GenerarScript
         Return pathscript
     End Function
 
-    Private Function SimpleInitialScriptContent() As String
+    Private Shared Function SimpleInitialScriptContent() As String
+        Dim dfltpathcont_template As String = "C:\Users\Croket\source\repos\CrearIcono\CrearIcono\CrearIcono.py"
+        Try
+            Dim sr As New IO.StreamReader(dfltpathcont_template)
+            Dim cnt As String = sr.ReadToEnd
+            sr.Close()
+            Return cnt
+        Catch ex As Exception
+            System.Diagnostics.Debug.WriteLine(ex.Message)
+        End Try
+
         Dim result As String = ""
 
         Return result
@@ -94,7 +122,7 @@ Friend Class GenerarScript
         Dim promptcount As Integer = prompts.Length
 
         'para hacer ciertos flujos en base al modelo o su ruta
-        If modelpath.Contains("asereje") Then
+        If modelpath.Contains("asereje", StringComparison.InvariantCultureIgnoreCase) Then
 
         End If
         If promptcount = 1 Then
