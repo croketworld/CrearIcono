@@ -61,7 +61,7 @@ Namespace My
 #Region "acciones usuario"
 
         Public Sub DocumentacionOnline()
-
+            Process.Start(EApplicationInfo.DocumentacionUrl)
         End Sub
 
 

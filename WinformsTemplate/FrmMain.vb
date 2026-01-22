@@ -23,6 +23,12 @@
         InitializeComponent()
         AddHandler Me.Load, AddressOf Iniciar
 
+
+        AddHandler MinimizarToolStripMenuItem.Click, AddressOf My.Application.Minimizar
+        AddHandler SalirToolStripMenuItem.Click, AddressOf My.Application.Salir
+
+
+
     End Sub
 
 
