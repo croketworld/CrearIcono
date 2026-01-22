@@ -6,6 +6,7 @@ Namespace My
 
         Private Sub IniciarFormulario()
             FormularioPrincipal = New FrmMain
+            'FormularioPrincipal.Icon = FrmDaemon.Icon
             AplicarDatosConfig()
         End Sub
 
@@ -13,6 +14,7 @@ Namespace My
             IniciarFormulario()
 
             With FormularioPrincipal
+
                 'TODO: añadir icono, texto, etc..  (personalizar plantilla
                 .Show()
             End With
@@ -20,18 +22,15 @@ Namespace My
 
         Public Sub Minimizar()
             GuardarDatosConfig()
-            IconoBandeja = New NotifyIcon
+            Me.IconoBandeja.Icon = My.Application.FormularioPrincipal.Icon
+            Me.IconoBandeja.Text = My.Application.FormularioPrincipal.Text
+            Me.IconoBandeja.Visible = True
 
-            With IconoBandeja
-                .Text = FormularioPrincipal.Text
-                .Icon = FormularioPrincipal.Icon
-                .Visible = True
-            End With
             With FormularioPrincipal
                 .ShowInTaskbar = False
                 .WindowState = FormWindowState.Minimized
                 .Visible = False
-                .Dispose()
+                '.Dispose()
             End With
         End Sub
 
@@ -44,8 +43,8 @@ Namespace My
                 .Show()
             End With
             If IconoBandeja IsNot Nothing Then
-                IconoBandeja.Dispose()
-                IconoBandeja = Nothing
+                ' IconoBandeja.Dispose()
+                'IconoBandeja = Nothing
 
             End If
 

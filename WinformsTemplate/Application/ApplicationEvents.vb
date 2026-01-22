@@ -39,11 +39,8 @@ Namespace My
         Public Config As AppConfiguracion
         Public ArgumentosInicio As String
 
-        Public Shared FormularioPrincipal As FrmMain
-
-        Public Shared IconoBandeja As NotifyIcon
-
-
+        Public FormularioPrincipal As FrmMain
+        Public IconoBandeja As NotifyIcon
 
         ''' <summary>
         ''' Aquí comienza la ejecución de la aplicación
@@ -53,8 +50,13 @@ Namespace My
         Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
             InicioArgumentos(e.CommandLine)
             IniciarConfig()
-            Iniciar()
-            IniciarIconoBandeja()
+            IconoBandeja = FrmDaemon.NotifyIcon1
+            If Me.Config.Form_IniciarMinizado = True Then
+                Minimizar()
+            Else
+                Iniciar()
+            End If
+
 
 
         End Sub

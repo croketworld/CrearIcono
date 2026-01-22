@@ -72,6 +72,7 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMain))
         MenuStrip1 = New MenuStrip()
         AplicaciónToolStripMenuItem = New ToolStripMenuItem()
         MinimizarToolStripMenuItem = New ToolStripMenuItem()
@@ -99,7 +100,6 @@
         MenuStrip1.Name = "MenuStrip1"
         MenuStrip1.Size = New Size(1218, 33)
         MenuStrip1.TabIndex = 0
-        MenuStrip1.Text = ""
         ' 
         ' AplicaciónToolStripMenuItem
         ' 
@@ -185,29 +185,30 @@
         StatusStrip1.TabIndex = 1
         StatusStrip1.Text = "StatusStrip1"
         ' 
-        ' lb_status
+        ' Lb_status
         ' 
         Lb_status.AutoSize = False
-        Lb_status.Name = "lb_status"
+        Lb_status.Name = "Lb_status"
         Lb_status.Size = New Size(1080, 25)
         Lb_status.Text = "Estado: chill"
         Lb_status.TextAlign = ContentAlignment.MiddleLeft
         ' 
-        ' pb_status
+        ' Pb_status
         ' 
         Pb_status.AutoSize = False
-        Pb_status.Name = "pb_status"
+        Pb_status.Name = "Pb_status"
         Pb_status.Size = New Size(100, 24)
         Pb_status.Style = ProgressBarStyle.Marquee
         Pb_status.Value = 60
         ' 
         ' FrmMain
         ' 
-        AutoScaleDimensions = New SizeF(10.0F, 25.0F)
+        AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1218, 664)
         Controls.Add(StatusStrip1)
         Controls.Add(MenuStrip1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MainMenuStrip = MenuStrip1
         Name = "FrmMain"
         Text = "Plantilla"

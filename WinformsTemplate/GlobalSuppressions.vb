@@ -13,3 +13,4 @@ Imports System.Diagnostics.CodeAnalysis
 <Assembly: SuppressMessage("Design", "CA1066:Implementar IEquatable al invalidar Object.Equals", Justification:="<pendiente>", Scope:="type", Target:="~T:WinformsTemplate.ETextosMenus")>
 <Assembly: SuppressMessage("Performance", "CA1815:Reemplazar Equals y el operador Equals en los tipos de valor", Justification:="<pendiente>", Scope:="type", Target:="~T:WinformsTemplate.ETextosMenus")>
 <Assembly: SuppressMessage("Globalization", "CA1303:No pasar cadenas literal como parámetros localizados", Justification:="<pendiente>", Scope:="member", Target:="~M:WinformsTemplate.My.MyApplication.IniciarIconoBandeja")>
+<Assembly: SuppressMessage("Globalization", "CA1303:No pasar cadenas literal como parámetros localizados", Justification:="<pendiente>", Scope:="member", Target:="~M:WinformsTemplate.FrmDaemon.InitializeComponent")>

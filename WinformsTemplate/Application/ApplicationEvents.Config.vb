@@ -44,7 +44,7 @@ Namespace My
             Dim fs As IO.FileStream = Nothing
             Dim ms As IO.MemoryStream = Me.Config.Serializar()
             Try
-                fs = New IO.FileStream(archivoCfgPath, IO.FileMode.CreateNew)
+                fs = New IO.FileStream(archivoCfgPath, IO.FileMode.Create)
                 ms.CopyTo(fs)
             Catch
                 'TODO: log error
