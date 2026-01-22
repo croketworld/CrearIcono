@@ -60,6 +60,16 @@ Namespace My
             End If
 
         End Sub
+
+
+        Public Sub GuardarDatosConfig()
+            Me.Config.Form_Tamaño = FormularioPrincipal.Size
+        End Sub
+
+
+        Public Sub AplicarDatosConfig()
+            FormularioPrincipal.Size = Me.Config.Form_Tamaño
+        End Sub
 #End Region
     End Class
 End Namespace

@@ -1,9 +1,17 @@
-﻿Namespace My
+﻿Imports Windows.AI.MachineLearning
+
+Namespace My
     Partial Friend Class MyApplication
 #Region "Comportamiento formulario"
 
-        Public Shared Sub Iniciar()
+        Private Sub IniciarFormulario()
             FormularioPrincipal = New FrmMain
+            AplicarDatosConfig()
+        End Sub
+
+        Public Sub Iniciar()
+            IniciarFormulario()
+
             With FormularioPrincipal
                 'TODO: añadir icono, texto, etc..  (personalizar plantilla
                 .Show()
@@ -11,15 +19,42 @@
         End Sub
 
         Public Sub Minimizar()
+            GuardarDatosConfig()
+            IconoBandeja = New NotifyIcon
 
+            With IconoBandeja
+                .Text = FormularioPrincipal.Text
+                .Icon = FormularioPrincipal.Icon
+                .Visible = True
+            End With
+            With FormularioPrincipal
+                .ShowInTaskbar = False
+                .WindowState = FormWindowState.Minimized
+                .Visible = False
+                .Dispose()
+            End With
         End Sub
 
         Public Sub Maximizar()
+            IniciarFormulario()
+            With FormularioPrincipal
+                .ShowInTaskbar = True
+                .WindowState = FormWindowState.Normal
+                .Visible = True
+                .Show()
+            End With
+            If IconoBandeja IsNot Nothing Then
+                IconoBandeja.Dispose()
+                IconoBandeja = Nothing
+
+            End If
 
         End Sub
 
         Public Sub Salir()
-
+            GuardarDatosConfig()
+            GuardarConfig()
+            Environment.Exit(0)
         End Sub
 
 
