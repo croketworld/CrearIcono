@@ -7,3 +7,6 @@ Imports System.Diagnostics.CodeAnalysis
 
 <Assembly: SuppressMessage("Maintainability", "CA1515:Considere la posibilidad de hacer que los tipos públicos sean internos", Justification:="<pendiente>", Scope:="type", Target:="~T:WinformsTemplate.FrmMain")>
 <Assembly: SuppressMessage("Globalization", "CA1303:No pasar cadenas literal como parámetros localizados", Justification:="<pendiente>", Scope:="member", Target:="~M:WinformsTemplate.FrmMain.InitializeComponent")>
+<Assembly: SuppressMessage("Maintainability", "CA1515:Considere la posibilidad de hacer que los tipos públicos sean internos", Justification:="<pendiente>", Scope:="type", Target:="~T:WinformsTemplate.FrmDaemon")>
+<Assembly: SuppressMessage("Design", "CA1031:No capture tipos de excepción generales.", Justification:="<pendiente>", Scope:="member", Target:="~M:WinformsTemplate.My.MyApplication.CargarConfig")>
+<Assembly: SuppressMessage("Design", "CA1031:No capture tipos de excepción generales.", Justification:="<pendiente>", Scope:="member", Target:="~M:WinformsTemplate.My.MyApplication.GuardarConfig")>

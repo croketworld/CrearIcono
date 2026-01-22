@@ -1,12 +1,29 @@
 <Solution>
+  <Folder Name="/0- archivos/">
+    <File Path="IdeaPlantilla.txt" />
+    <Project Path="CrearIcono/CrearIcono.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52" Id="fbafad7a-cef3-4461-8142-a695cf0ad369">
+      <Build Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/1- data/" />
+  <Folder Name="/2- libs/">
+    <Project Path="Anunnaki.Base.Functionallity/Anunnaki.BL.Base.vbproj" Id="0810fe76-1d13-4449-9619-a6ed6234c368" />
+    <Project Path="Anunnaki.Models.Base/Anunnaki.Models.Base.vbproj" Id="0dae7f63-b904-4a4c-b988-40cad2f4d5d3" />
+  </Folder>
+  <Folder Name="/3- BL/">
+    <Project Path="Anunnaki.BL.Models/Anunnaki.BL.Models.vbproj" Id="5224cc4a-79db-423d-ba86-3ae5d751e32c" />
+  </Folder>
+  <Folder Name="/4- Infr/">
+    <Project Path="WinformsTemplate/WinformsTemplate.vbproj" Id="462631cb-7f95-4714-9627-554557dcbf9c" />
+  </Folder>
+  <Folder Name="/5- API/" />
+  <Folder Name="/6- UI/">
+    <Project Path="CapturarPantalla/CapturarPantalla.vbproj" Id="a5d9d84f-5ae8-4b28-ba1f-7e9972ad23e8" />
+    <Project Path="CrearIconoUI/CrearIconoUI.vbproj" />
+  </Folder>
+  <Folder Name="/6- Web/" />
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
     <File Path="test.txt" />
   </Folder>
-  <Project Path="CapturarPantalla/CapturarPantalla.vbproj" Id="a5d9d84f-5ae8-4b28-ba1f-7e9972ad23e8" />
-  <Project Path="CrearIcono/CrearIcono.pyproj" Type="888888a0-9f3d-457c-b088-3a5042f75d52" Id="fbafad7a-cef3-4461-8142-a695cf0ad369">
-    <Build Project="false" />
-  </Project>
-  <Project Path="CrearIconoUI/CrearIconoUI.vbproj" />
-  <Project Path="WinformsTemplate/WinformsTemplate.vbproj" Id="462631cb-7f95-4714-9627-554557dcbf9c" />
 </Solution>

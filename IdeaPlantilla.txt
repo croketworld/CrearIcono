@@ -1,0 +1,9 @@
+Plantilla aplicaciones de escritorio para Windows
+
+- Menu principal
+- Minimización a bandeja de sistema
+- Menu contextual en bandeja de sistema
+- Configuración
+- Preparado para multi-lenguaje (globalización)
+- Librerías con funcionalidad base para serializar y otras funcionalidades comunes
+

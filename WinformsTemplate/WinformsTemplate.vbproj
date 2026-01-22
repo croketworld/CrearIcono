@@ -17,6 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Anunnaki.Base.Functionallity\Anunnaki.BL.Base.vbproj" />
+    <ProjectReference Include="..\Anunnaki.BL.Models\Anunnaki.BL.Models.vbproj" />
+    <ProjectReference Include="..\Anunnaki.Models.Base\Anunnaki.Models.Base.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="My Project\Application.Designer.vb">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

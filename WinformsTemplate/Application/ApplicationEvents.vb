@@ -1,4 +1,6 @@
-﻿Imports Microsoft.VisualBasic.ApplicationServices
+﻿Imports Anunnaki.BL.Models
+Imports Anunnaki.Models.Base
+Imports Microsoft.VisualBasic.ApplicationServices
 Imports Microsoft.VisualBasic.Devices
 
 Namespace My
@@ -24,12 +26,36 @@ Namespace My
     '   e.MinimumSplashScreenDisplayTime = 4000
     ' End Sub
 
+
+
+
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+
     Partial Friend Class MyApplication
 
-        Public config As Configuracion
+        Public Config As AppConfiguracion
+        Public ArgumentosInicio As String
+
+        Public Shared FormularioPrincipal As FrmMain
+
+        Public Shared IconoBandeja As NotifyIcon
 
 
+
+        ''' <summary>
+        ''' Aquí comienza la ejecución de la aplicación
+        ''' </summary>
+        ''' <param name="sender"></param>
+        ''' <param name="e"></param>
         Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
+            InicioArgumentos(e.CommandLine)
+            IniciarConfig()
+            Iniciar()
+            IniciarIconoBandeja()
+
 
         End Sub
 
