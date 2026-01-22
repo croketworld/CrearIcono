@@ -2,11 +2,12 @@ import torch
 from diffusers import StableDiffusionPipeline
 from PIL import Image
 
+
 # Configuración
-MODEL_PATH = "C:\Users\Croket\Documents\AI\Models\fantassifiedIcons_fantassifiedIconsV20.safetensors"  
+MODEL_PATH = 'C:/Users/Croket/Documents/AI/Models/fantassifiedIcons_fantassifiedIconsV20.safetensors'
 PROMPT = "Crea un icono para un acceso directo a una aplicación que descarga música de youtube"
 NEGATIVE_PROMPT = "text, watermark, blurry, low quality, extra elements"
-OUTPUT_PATH = "C:\Users\Croket\Documents\AI\Work\youtubedownloadicon.png"
+OUTPUT_PATH = 'C:/Users/Croket/Document/AI/Work/youtubedownloadicon.png'
 WIDTH, HEIGHT = 512, 512
 NUM_INFERENCE_STEPS = 20
 GUIDANCE_SCALE = 7.5
@@ -29,9 +30,9 @@ pipe.to(device)
 
 # Habilitar atención eficiente si estás en CUDA (mejora rendimiento)
 if device == "cuda":
-    pipe.enable_xformers_memory_efficient_attention()  # opcional, requiere instalar xformers
+    #pipe.enable_xformers_memory_efficient_attention()  # opcional, requiere instalar xformers
     # Alternativa sin xformers:
-    # pipe.enable_attention_slicing()
+    pipe.enable_attention_slicing()
 
 # Generar semilla fija (opcional)
 generator = torch.Generator(device=device).manual_seed(SEED)

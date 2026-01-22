@@ -5,3 +5,6 @@ dotnet_diagnostic.CA1707.severity = none
 
 # CA2227: Las propiedades de colección deben ser de solo lectura
 dotnet_diagnostic.CA2227.severity = none
+
+
+dotnet_diagnostic.WFO1000.severity = none

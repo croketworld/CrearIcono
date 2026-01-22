@@ -11,3 +11,14 @@ https://huggingface.co/ekwek/Soprano-1.1-80M
 # voz de mujer en inglés
 soprano-webui
 http://127.0.0.1:7860/
+
+
+import torch 
+print(torch.cuda.is_available())
+print(torch.version.cuda)
+
+
+nvidia-smi
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+pip install torch==2.9.1   
+C:\Users\Croket\source\repos\CrearIcono\CrearIcono>python test1.py

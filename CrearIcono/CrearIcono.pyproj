@@ -28,6 +28,7 @@
     <Compile Include="qwencoder25.py" />
     <Compile Include="test1.py" />
     <Compile Include="template1.py" />
+    <Compile Include="torchversion.py" />
     <Compile Include="ultravoz-ollama3b.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
