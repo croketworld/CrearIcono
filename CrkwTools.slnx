@@ -5,6 +5,9 @@
       <Build Project="false" />
     </Project>
   </Folder>
+  <Folder Name="/00- Tools/">
+    <Project Path="CrearElementoMenuContextualWindows/CrearElementoMenuContextualWindows.vbproj" Id="c93364c8-b2be-493c-8818-bb2bcd2c0ba2" />
+  </Folder>
   <Folder Name="/1- data/" />
   <Folder Name="/2- libs/">
     <Project Path="Anunnaki.Base.Functionallity/Anunnaki.BL.Base.vbproj" Id="0810fe76-1d13-4449-9619-a6ed6234c368" />
