@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports System.Diagnostics.Eventing.Reader
+
+Public Class Form1
 
     Public Elemento As ElementoMenuContextual
 
@@ -100,7 +102,7 @@
 #Region "acciones app"
 
     Public Sub Documentación()
-        Process.Start("https://github.com/croketworld/CrearIcono/...")
+        Process.Start("https://github.com/croketworld/CrearIcono/blob/commander/CrearElementoMenuContextualWindows/Readme.md")
     End Sub
 
     Public Sub Salir()
@@ -124,6 +126,13 @@
         Return (msgres = DialogResult.Yes)
     End Function
 
+    Private Function ConfirmarRecarga() As Boolean
+        Dim texto As String = "Hay cambios sin guardar ¿deseas realizar la carga aún perdiendo los datos?" &
+            Environment.NewLine & "pulsa NO para cargar el elemento en una nueva instancia." &
+            Environment.NewLine & "pulsa SI para realizar la carga perdiendo los cambios."
+        Dim msgres As DialogResult = MessageBox.Show(texto, "Cargar sin guardar cambios", MessageBoxButtons.YesNo)
+        Return (msgres = DialogResult.Yes)
+    End Function
 #End Region
 
 
@@ -171,7 +180,7 @@
     Private Sub Accion_Guardar()
 
     End Sub
-    Private Sub Accion_Cargar()
+    Public Sub Accion_Cargar()
         Dim ofd As New OpenFileDialog
         With ofd
             .Title = "Cargar elemento de menú contextual desde archivo"
@@ -181,8 +190,28 @@
         If dlgres = DialogResult.OK Then
             Me.RutaElementoCargadoGuardado = ofd.FileName
         End If
-
+        Accion_ReCargarElemento()
     End Sub
+
+    Public Sub Accion_ReCargarElemento()
+        Me.ElementoCargado = New ElementoMenuContextual(Me.RutaElementoCargadoGuardado)
+        If Me.Elemento <> Me.ElementoCargado Then
+            Dim confirmacion As DialogResult = ConfirmarRecarga()
+            If confirmacion = DialogResult.Cancel Then Exit Sub
+            If confirmacion = DialogResult.No Then
+
+            End If
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Comprueba si el elemento es diferente de cuando se ha creado
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function Comprobar_esDiferente() As Boolean
+
+    End Function
+
 
     Private Sub Accion_Eliminar()
 
@@ -190,82 +219,5 @@
 
 
 #End Region
-
-End Class
-
-
-<Flags>
-Public Enum EEstadoElementoMenu
-    Ninguno = 0
-    NotSet = Ninguno
-    Cargado = 1
-    Guardado = 2
-    Editado = 4
-    Modificado = 5
-
-
-End Enum
-
-
-Public Class ElementoMenuContextual
-
-
-    ''' <summary>
-    ''' El estado del elemento editado
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property Estado As EEstadoElementoMenu
-
-    ''' <summary>
-    ''' Si corresponde el elemento en edición con el cargado
-    ''' </summary>
-    ''' <returns></returns>
-    Public ReadOnly Property Guardado As Boolean
-        Get
-            Return Me.Estado And EEstadoElementoMenu.Guardado = 1
-        End Get
-    End Property
-    ''' <summary>
-    ''' Si el contenido del editor es igual al guardado
-    ''' </summary>
-    ''' <returns></returns>
-    Public ReadOnly Property Cargado As Boolean
-        Get
-            Return Me.Estado And EEstadoElementoMenu.Cargado = 1
-        End Get
-    End Property
-
-    ''' <summary>
-    ''' Si ha sido cargado y se ha editado (algún valor es diferente al orioginal
-    ''' </summary>
-    ''' <returns></returns>
-    Public ReadOnly Property Modificado As Boolean
-        Get
-            Return Me.Editado And Me.Cargado
-        End Get
-    End Property
-
-    ''' <summary>
-    ''' Si se ha editado algún valor
-    ''' </summary>
-    ''' <returns></returns>
-    Public ReadOnly Property Editado As Boolean
-        Get
-            Return Me.Estado And EEstadoElementoMenu.Editado = 1
-        End Get
-    End Property
-
-
-    Public Property Accion As String
-    Public Property Argumentos As String
-    Public Property RutaIcono As String
-
-    Public Property EjecutarComoAdministrador As Boolean
-
-    Public Sub New()
-        Me.Estado = EEstadoElementoMenu.Ninguno
-
-    End Sub
-
 
 End Class
