@@ -7,6 +7,7 @@
   </Folder>
   <Folder Name="/00- Tools/">
     <Project Path="CrearElementoMenuContextualWindows/CrearElementoMenuContextualWindows.vbproj" Id="c93364c8-b2be-493c-8818-bb2bcd2c0ba2" />
+    <Project Path="ImgToIcon/ImgToIcon.csproj" Id="fc17aede-f177-40c8-8285-cfbec5e2f1f5" />
   </Folder>
   <Folder Name="/1- data/" />
   <Folder Name="/2- libs/">
