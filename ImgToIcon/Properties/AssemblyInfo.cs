@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada a un ensamblado.
 [assembly: AssemblyTitle("ImgToIcon")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Arrastra imágenes sobre el ejecutable para crear iconos")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Croketworld")]
 [assembly: AssemblyProduct("ImgToIcon")]
-[assembly: AssemblyCopyright("Copyright ©  2026")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Croketworld ©  2026")]
+[assembly: AssemblyTrademark("ImgToIcon By Croketworld")]
 [assembly: AssemblyCulture("")]
 
 // Si establece ComVisible en false, los tipos de este ensamblado no estarán visibles 
